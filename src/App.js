@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+// import makeStyles from '@material-ui/core/makeStyles';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import DraggableResizeModal from './components/common/DraggableResizeModal';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        padding: theme.spacing(2)
+    }
+}));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const classes = useStyles();
+    const [open ,setOpen] = useState(false);
+
+    const handleOpenToggle = (evt) => {
+        setOpen(!open)
+    };
+
+    return (
+        <div className={classes.root}>
+            <Button variant="outlined" color="primary" onClick={handleOpenToggle}>
+                Open alert dialog
+            </Button>
+            <DraggableResizeModal
+                title={'모달 테스트'}
+                open={open}
+                width={450}
+                height={450}
+                onClose={handleOpenToggle}
+            >
+            </DraggableResizeModal>
+        </div>
+    );
 }
 
 export default App;

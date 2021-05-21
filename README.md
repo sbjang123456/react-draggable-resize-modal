@@ -1,6 +1,6 @@
 # [Create React App](https://github.com/facebook/create-react-app) (CRA) 테스트 프로젝트 #
 
-이동 가능하고 리사이즈 기능이 있는 모달 컴포넌트
+이동 및 리사이즈 기능이 있는 모달 컴포넌트
 > 해당 프로젝트는 material-ui 기반 컴포넌트 입니다.
 >
 
